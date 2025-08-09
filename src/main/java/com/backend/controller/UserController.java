@@ -4,6 +4,7 @@ import com.backend.dto.request.UserCreationRequest;
 import com.backend.dto.request.UserUpdateRequest;
 import com.backend.entity.User;
 import com.backend.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping()
-    User createUser(@RequestBody UserCreationRequest request) {
+    User createUser(@RequestBody @Valid UserCreationRequest request) {
        return userService.createRequest(request);
     }
 
